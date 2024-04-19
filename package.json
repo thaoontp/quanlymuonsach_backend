@@ -4,18 +4,13 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
-		"test": "Nodejs , expressjs"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-
   "author": "Nguyen Thi Phuong Thao",
   "license": "ISC",
   "dependencies": {
-		"cors": "^2.8.5",
-		"express": "^4.19.2"
-	},
-  
-	"devDependencies": {
-		"nodemon": "^3.1.0"
-	}
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.2"
+  }
 }
