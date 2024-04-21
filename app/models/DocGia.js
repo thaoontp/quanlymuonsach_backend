@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const ReaderModel = new Schema({
+const DocGia = new Schema({
   Ten: { type: String, maxLength: 255 },
   NgaySinh: { type: String, maxLength: 255 },
   Phai: { type: String, maxLength: 255 },
@@ -11,4 +11,4 @@ const ReaderModel = new Schema({
   Avatar: { type: String, maxLength: 255 },
 });
 
-module.exports = mongoose.model("ReaderModel", ReaderModel);
+module.exports = mongoose.model("DocGia", DocGia);

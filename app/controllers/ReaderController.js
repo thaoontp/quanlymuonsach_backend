@@ -1,6 +1,6 @@
-const DocGia = require("../models/ReaderModel");
-const NhanVien = require("../models/StaffModel");
-const TheoDoiMuonSach = require("../models/TrackBookModel");
+const TheoDoiMuonSach = require("../models/TheoDoiMuonSach");
+const DocGia = require("../models/DocGia");
+const Sach = require("../models/Sach");
 
 class ReaderController {
   async listUser(req, res, next) {

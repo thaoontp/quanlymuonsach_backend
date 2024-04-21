@@ -1,6 +1,6 @@
-const TheoDoiMuonSach = require("../models/TrackBookModel");
-const DocGia = require("../models/ReaderModel");
-const Sach = require("../models/BookModel");
+const TheoDoiMuonSach = require("../models/TheoDoiMuonSach");
+const DocGia = require("../models/DocGia");
+const Sach = require("../models/Sach");
 class RentController {
   async addToRent(req, res, next) {
     try {

@@ -1,12 +1,13 @@
-const Published = require("../models/PublisherModel");
+const Published = require("../models/NhaXuatBan");
 
 class PublishedController {
-  async listProduct(req, res, next) {
+  async listPublisher(req, res, next) {
     const searchQuery = req.query.search;
+    console.log("OKE");
+
     if (searchQuery) {
-      const published = await Published.find({
-        TenNxb: { $regex: searchQuery, $options: "i" },
-      });
+      const published = await Published.find();
+      console.log(published);
       if (published.length > 0) {
         res.json(published);
       } else {
@@ -21,10 +22,10 @@ class PublishedController {
     }
   }
 
-  async addProduct(req, res, next) {
+  async addPublisher(req, res, next) {
     try {
-      const TenNxb = req.body.tenNxb;
-      const DiaChi = req.body.diaChi;
+      const TenNxb = req.body.TenNxb;
+      const DiaChi = req.body.DiaChi;
       const existingPublished = await Published.findOne({ TenNxb });
       if (existingPublished) {
         return res.json({ update: "Nhà Xuất bản đã tồn tại" });

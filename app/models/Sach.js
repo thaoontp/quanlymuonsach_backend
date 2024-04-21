@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const BookModel = new Schema({
+const Sach = new Schema({
   TenSach: { type: String, maxLength: 255 },
   DonGia: { type: Number },
   SoQuyen: { type: Number },
@@ -11,4 +11,4 @@ const BookModel = new Schema({
   HinhSach: { type: String, maxLength: 255 },
 });
 
-module.exports = mongoose.model("BookModel", BookModel);
+module.exports = mongoose.model("Sach", Sach);
