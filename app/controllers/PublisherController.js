@@ -1,11 +1,14 @@
 const Published = require("../models/NhaXuatBan");
+const NhaXuatBan = require("../models/NhaXuatBan");
 
 class PublishedController {
   async listPublisher(req, res, next) {
     const searchQuery = req.query.search;
     console.log("OKE");
-
     if (searchQuery) {
+      // const published = await Published.find({
+      // 	TenNxb: { $regex: searchQuery, $options: "i" },
+      // });
       const published = await Published.find();
       console.log(published);
       if (published.length > 0) {
@@ -24,21 +27,35 @@ class PublishedController {
 
   async addPublisher(req, res, next) {
     try {
-      const TenNxb = req.body.TenNxb;
-      const DiaChi = req.body.DiaChi;
-      const existingPublished = await Published.findOne({ TenNxb });
-      if (existingPublished) {
-        return res.json({ update: "Nhà Xuất bản đã tồn tại" });
-      } else {
-        const newPublished = new Published({
-          TenNxb,
-          DiaChi,
+      // Lấy thông tin từ req.body
+      const { TenNxb, DiaChi } = req.body;
+
+      // Kiểm tra xem các trường bắt buộc có tồn tại không
+      if (!TenNxb || !DiaChi) {
+        return res.status(400).json({ error: "Thiếu thông tin bắt buộc" });
+      }
+
+      // Tìm kiếm nhà xuất bản đã tồn tại
+      const existingPublisher = await NhaXuatBan.findOne({ TenNxb });
+
+      // Nếu nhà xuất bản đã tồn tại, trả về thông báo và dữ liệu của nhà xuất bản đó
+      if (existingPublisher) {
+        return res.json({
+          update: "Nhà Xuất bản đã tồn tại",
+          data: existingPublisher,
         });
-        await newPublished.save();
-        return res.json({ message: "Đã thêm nhà xuất bản" });
+      } else {
+        // Nếu nhà xuất bản chưa tồn tại, tạo mới và lưu vào cơ sở dữ liệu
+        const newPublisher = new NhaXuatBan({ TenNxb, DiaChi });
+        await newPublisher.save();
+        console.log("New publisher added:", newPublisher);
+        return res
+          .status(201)
+          .json({ message: "Đã thêm nhà xuất bản", data: newPublisher });
       }
     } catch (error) {
-      console.log("Lỗi khi thêm nhà xuất bản", error);
+      // Xử lý lỗi nếu có
+      console.log("Error in addPublisher:", error);
       res
         .status(500)
         .json({ message: "Lỗi khi thêm nhà xuất bản", error: error.message });

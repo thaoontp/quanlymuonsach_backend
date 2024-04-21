@@ -22,7 +22,7 @@ router.put(
   upload.single("avatar"),
   authenticationController.editProfileStaff
 );
-router.get("/:id", authenticationController.infoUser);
+router.get("/info/:id", authenticationController.infoUser);
 router.put(
   "/edit/:id",
   upload.single("avatar"),
