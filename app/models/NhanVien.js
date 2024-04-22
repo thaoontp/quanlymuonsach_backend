@@ -10,4 +10,4 @@ const NhanVien = new Schema({
   Avatar: { type: String, maxLength: 255 },
 });
 
-module.exports = mongoose.model("NhanVien", NhanVien);
+module.exports = mongoose.model("StaffModel", NhanVien);

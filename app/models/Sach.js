@@ -11,4 +11,4 @@ const Sach = new Schema({
   HinhSach: { type: String, maxLength: 255 },
 });
 
-module.exports = mongoose.model("Sach", Sach);
+module.exports = mongoose.model("BookModel", Sach);

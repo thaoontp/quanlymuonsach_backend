@@ -11,4 +11,4 @@ const DocGia = new Schema({
   Avatar: { type: String, maxLength: 255 },
 });
 
-module.exports = mongoose.model("DocGia", DocGia);
+module.exports = mongoose.model("ReaderModel", DocGia);

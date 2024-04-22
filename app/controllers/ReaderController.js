@@ -1,6 +1,6 @@
-const TheoDoiMuonSach = require("../models/TheoDoiMuonSach");
 const DocGia = require("../models/DocGia");
-const Sach = require("../models/Sach");
+const NhanVien = require("../models/NhanVien");
+const TheoDoiMuonSach = require("../models/TheoDoiMuonSach");
 
 class ReaderController {
   async listUser(req, res, next) {

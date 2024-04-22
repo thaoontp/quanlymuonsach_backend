@@ -12,4 +12,4 @@ const TheoDoiMuonSach = new Schema({
   ThanhTien: { type: Number },
 });
 
-module.exports = mongoose.model("TheoDoiMuonSach", TheoDoiMuonSach);
+module.exports = mongoose.model("TrackBookModel", TheoDoiMuonSach);
